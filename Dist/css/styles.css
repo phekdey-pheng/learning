@@ -1,0 +1,113 @@
+/* Add your custom styles here */
+/* For example: */
+body {
+  position: relative;
+
+}
+
+/* CSS to display the background text */
+body.showBackgroundText::before {
+  content: "P-Learning Online";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+  color: rgba(0, 0, 0, 0.1); /* Adjust the color and opacity as needed */
+  pointer-events: none; /* Ensure it doesn't interfere with clicking */
+  z-index: -1; /* Place it behind the content */
+}
+
+/* Hide the header initially */
+header {
+  display: none;
+}
+
+/* Custom styles for login and dashboard sections */
+#loginSection {
+  margin-top: 40%;
+  text-align: center;
+}
+
+#dashboardSection {
+  display: none; /* Initially hide the dashboard section */
+}
+
+
+.sidebar {
+  position: fixed;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding-top: 3.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: 1px solid #dee2e6;
+}
+
+.nav-link {
+  color: #333;
+  transition: color 0.3s; /* Add transition effect for color change */
+}
+
+.nav-link.active,
+.nav-link:hover {
+  font-weight: bold;
+  color: #007bff; /* Change color on hover or when item is active */
+}
+
+/* Adjust sidebar visibility for smaller screens */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: -250px; /* Hide sidebar by default */
+    z-index: 1000;
+    padding-top: 3.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 1px solid #dee2e6;
+    transition: all 0.3s;
+  }
+
+  .sidebar.active {
+    left: 0; /* Show sidebar when active */
+  }
+}
+
+/* CSS for loading icon */
+#loadingIndicator {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  z-index: 9999; /* Ensure it's on top of other elements */
+}
+
+.loading-icon {
+  text-align: center;
+}
+
+.loading-icon i {
+  font-size: 40px; /* Adjust the size of the spinner */
+}
+
+/* Custom CSS for adjusting the dropdown menu width */
+.dropdown-menu {
+  min-width: auto;
+  width: fit-content;
+  margin-right: 0px;
+  margin-left: -35px;
+  margin-top: 10px;
+}
+
+
+
+

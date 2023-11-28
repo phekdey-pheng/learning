@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P-Learning</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="../Dist/css/styles.css">
+</head>
+<body oncontextmenu="return false">
+  <!-- Add dropdown menus for Profile and Settings -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              User
+            </a>
+            <div class="dropdown-menu" aria-labelledby="profileDropdown">
+              <a class="dropdown-item" href="#" data-page="profile">Profile</a>
+              <a class="dropdown-item" href="#" data-page="settings">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" data-page="logout">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Login Content Section -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <section id="loginSection" class="col-md-5">
+        <!-- Your login form goes here -->
+        <div class="container">
+          <h2>Login | P-Learning</h2>
+          <br><hr><br>
+          <div class="row">
+            <div class="col-md-8">
+              <form id="loginForm">
+                <div class="form-group">
+                  <!-- <label for="email" class="float-left">Email</label> -->
+                  <input type="email" class="form-control" id="email" placeholder="Enter your email ..." required>
+                </div>
+                <div class="form-group">
+                  <!-- <label for="password" class="float-left">Password</label> -->
+                  <input type="password" class="form-control" id="password" placeholder="Enter your password ..." required>
+                </div>
+                <button type="submit" class="btn btn-primary float-left">Login</button>
+              </form>
+            </div>
+            <div class="col-md-4">
+              <small>If you want to open a new account.</small><br>
+              <small><i>Telegram: <a href="https://t.me/phekdey_phorn" target="_blank">admin</a></i></small>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Loading Indicator -->
+  <div id="loadingIndicator" style="display: none;">
+    <div class="loading-icon">
+      <!-- Replace this with your preferred loading icon or spinner -->
+      <i class="fas fa-spinner fa-spin"></i>
+    </div>
+  </div>
+
+  <!-- Modal for Logout Confirmation -->
+  <div class="modal" id="logoutModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirm Logout</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to log out ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="confirmLogout">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Incorrect Login -->
+  <div class="modal" id="incorrectLoginModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login Error</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Invalid email or password. Please try again.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content (Dashboard) Section -->
+  <section id="dashboardSection" style="display: none;">
+    <!-- Main Content -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Left Navigation -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Course</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Tips</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Tools</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Page Content -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+          <div id="mainContent">
+            <!-- Initial content or dynamically loaded content will appear here -->
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../Dist/js/scripts.js"></script>
+</body>
+</html>
+
+
